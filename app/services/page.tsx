@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "상담 서비스 | 온결 명리",
-  description: "사주 명리 상담, 연애·결혼 궁합, 사업·재물 상담 서비스를 소개합니다.",
+  description: "사주 명리 상담, 연애·결혼 궁합 상담 서비스를 소개합니다.",
 };
 
 const services = [
@@ -15,7 +15,7 @@ const services = [
     desc: "태어난 날의 기운(사주팔자)을 분석해 당신의 타고난 기질과 인생의 큰 흐름을 살펴드립니다. 직업, 진로, 인간관계, 건강까지 삶 전반의 지도를 그려드립니다.",
     includes: ["타고난 기질과 성향 분석", "직업·진로 방향 안내", "인간관계 패턴 분석", "연도별 운세 흐름(대운/세운)", "Q&A 시간 포함"],
     duration: "60분",
-    price: "70,000원",
+    price: "50,000원 / 가족 포함 100,000원",
     color: "#3D2B1F",
   },
   {
@@ -29,18 +29,6 @@ const services = [
     duration: "70분",
     price: "80,000원",
     color: "#7C3D3D",
-  },
-  {
-    id: "business",
-    icon: "◈",
-    tag: "BUSINESS",
-    title: "사업·재물 상담",
-    subtitle: "사업의 방향을 잡다",
-    desc: "재물운과 사업 기질을 명리학으로 분석합니다. 사업 시작 타이밍, 업종 적성, 파트너십, 투자 방향까지 실질적인 안내를 드립니다.",
-    includes: ["재물운·사업 기질 분석", "창업/사업 타이밍 안내", "적합한 업종 방향 제시", "파트너십 궁합 분석", "Q&A 시간 포함"],
-    duration: "70분",
-    price: "80,000원",
-    color: "#2B3D2B",
   },
 ];
 

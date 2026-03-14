@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "소개 | 온결 명리",
@@ -95,9 +96,15 @@ export default function AboutPage() {
             상담사 소개
           </h2>
           <div className="bg-[#FFFDF7] rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start">
-            {/* 프로필 이미지 자리 */}
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#E8DFD0] flex items-center justify-center flex-shrink-0 mx-auto md:mx-0">
-              <span className="text-4xl text-[#C8A96E]">人</span>
+            {/* 프로필 이미지 */}
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
+              <Image
+                src="/1.png"
+                alt="상담사 프로필 사진"
+                width={128}
+                height={128}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3
