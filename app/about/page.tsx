@@ -95,15 +95,15 @@ export default function AboutPage() {
           >
             상담사 소개
           </h2>
-          <div className="bg-[#FFFDF7] rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start">
+          <div className="bg-[#FFFDF7] rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-stretch">
             {/* 프로필 이미지 */}
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
+            <div className="w-full md:w-48 rounded-xl overflow-hidden flex-shrink-0 mx-auto md:mx-0 self-stretch">
               <Image
                 src="/1.png"
                 alt="상담사 프로필 사진"
-                width={128}
-                height={128}
-                className="w-full h-full object-cover"
+                width={192}
+                height={300}
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div className="flex-1 text-center md:text-left">
