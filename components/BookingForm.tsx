@@ -51,9 +51,29 @@ export default function BookingForm() {
     return d.toISOString().split("T")[0];
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!form.name || !form.birthdate || !form.phone) return;
-    setStep(5);
+    try {
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service: selectedService,
+          date: selectedDate,
+          time: selectedTime,
+          name: form.name,
+          birthdate: form.birthdate,
+          birthHour: form.birthHour,
+          phone: form.phone,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setStep(5);
+    } catch {
+      alert("예약 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }
   }
 
   const service = services.find((s) => s.id === selectedService);
