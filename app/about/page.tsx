@@ -106,7 +106,7 @@ export default function AboutPage() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-center md:text-left flex flex-col justify-end">
               <h3
                 className="text-xl font-bold text-[#3D2B1F] mb-1"
                 style={{ fontFamily: "'Noto Serif KR', serif" }}
