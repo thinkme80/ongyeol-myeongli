@@ -301,18 +301,6 @@ export default function BookingForm() {
             </div>
             <div>
               <label className="block text-xs text-[#5C4033] mb-1.5 font-medium">
-                이메일 <span className="text-[#A89070] font-normal">(선택)</span>
-              </label>
-              <input
-                type="email"
-                placeholder="example@email.com"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full p-3 bg-[#F5F0E8] border border-[#E8DFD0] rounded-xl text-[#3D2B1F] text-sm focus:outline-none focus:border-[#C8A96E] placeholder:text-[#C8B89A]"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-[#5C4033] mb-1.5 font-medium">
                 상담 주요 고민 <span className="text-[#A89070] font-normal">(선택)</span>
               </label>
               <textarea
@@ -337,32 +325,32 @@ export default function BookingForm() {
               disabled={!form.name || !form.birthdate || !form.phone}
               className="flex-1 py-4 bg-[#3D2B1F] text-[#F5F0E8] rounded-full text-sm font-medium disabled:opacity-40 hover:bg-[#5C4033] transition-colors"
             >
-              예약 확정
+              예약 신청
             </button>
           </div>
         </div>
       )}
 
-      {/* Step 5: 완료 */}
+      {/* Step 5: 예약금 안내 */}
       {step === 5 && (
-        <div className="text-center py-8">
+        <div className="py-8">
           <div className="w-16 h-16 rounded-full bg-[#F5F0E8] flex items-center justify-center mx-auto mb-6">
             <svg className="w-8 h-8 text-[#C8A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
           <h2
-            className="text-2xl font-bold text-[#3D2B1F] mb-3"
+            className="text-2xl font-bold text-[#3D2B1F] mb-3 text-center"
             style={{ fontFamily: "'Noto Serif KR', serif" }}
           >
-            예약이 완료되었습니다
+            예약 신청이 완료되었습니다
           </h2>
-          <p className="text-[#8B6B4A] text-sm leading-relaxed mb-8">
-            {form.name}님, 예약해주셔서 감사합니다.<br />
-            곧 문자로 예약 확인 안내를 보내드리겠습니다.
+          <p className="text-[#8B6B4A] text-sm leading-relaxed mb-8 text-center">
+            {form.name}님, 신청해주셔서 감사합니다.
           </p>
 
-          <div className="bg-[#F5F0E8] rounded-2xl p-6 text-left mb-8">
+          {/* 예약 내역 */}
+          <div className="bg-[#F5F0E8] rounded-2xl p-6 mb-5">
             <h3 className="text-xs font-bold text-[#3D2B1F] mb-3 tracking-wide">예약 내역</h3>
             <div className="space-y-2 text-sm">
               {[
@@ -371,6 +359,7 @@ export default function BookingForm() {
                 { label: "시간", value: selectedTime },
                 { label: "이름", value: form.name },
                 { label: "연락처", value: form.phone },
+                { label: "금액", value: service?.price },
               ].map((item) => (
                 <div key={item.label} className="flex justify-between">
                   <span className="text-[#8B6B4A]">{item.label}</span>
@@ -380,13 +369,36 @@ export default function BookingForm() {
             </div>
           </div>
 
-          <p className="text-xs text-[#A89070] mb-6">
-            문의사항이 있으시면 카카오톡 @온결명리 또는 010-0000-0000으로 연락주세요.
-          </p>
+          {/* 입금 안내 */}
+          <div className="bg-[#FFF8EE] border border-[#C8A96E] rounded-2xl p-6 mb-5">
+            <h3 className="text-xs font-bold text-[#C8A96E] mb-3 tracking-wide">입금 안내</h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-[#8B6B4A]">은행</span>
+                <span className="text-[#3D2B1F] font-medium">국민은행</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[#8B6B4A]">계좌번호</span>
+                <span className="text-[#3D2B1F] font-bold tracking-wide">000-000-0000000</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[#8B6B4A]">예금주</span>
+                <span className="text-[#3D2B1F] font-medium">온결명리</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 안내 메시지 */}
+          <div className="bg-[#F5F0E8] rounded-2xl p-5 mb-8 text-center">
+            <p className="text-[#5C4033] text-sm leading-relaxed">
+              입금을 하시고 기다리시면<br />
+              <span className="font-bold text-[#3D2B1F]">예약 확정 안내 문자</span>를 보내드립니다.
+            </p>
+          </div>
 
           <a
             href="/"
-            className="inline-block px-8 py-3 bg-[#3D2B1F] text-[#F5F0E8] rounded-full text-sm font-medium hover:bg-[#5C4033] transition-colors"
+            className="block w-full py-4 bg-[#3D2B1F] text-[#F5F0E8] rounded-full text-sm font-medium hover:bg-[#5C4033] transition-colors text-center"
           >
             홈으로 돌아가기
           </a>
